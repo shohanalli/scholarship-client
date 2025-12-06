@@ -11,7 +11,7 @@ const Logo = () => {
               className="text-3xl font-extrabold text-secondary"
             >
               {" "}
-              Scholar
+              ScholarShip
             </a>
           </div>
     );
