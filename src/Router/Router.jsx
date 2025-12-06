@@ -5,6 +5,7 @@ import AllSchollership from "../Page/AllSchollership/AllSchollership";
 import AuthLayout from "../Layout/AuthLayout";
 import Login from "../Authentication/Login/Login";
 import Register from "../Authentication/Register/Register";
+import PrivetRouter from "./PrivetRouter/PrivetRouter";
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ export const router = createBrowserRouter([
         },
         {
         path: '/all-scholarship',
-        element : <AllSchollership />,
+        element : <PrivetRouter><AllSchollership /></PrivetRouter>,
         },
         
     ]

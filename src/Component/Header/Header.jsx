@@ -1,11 +1,23 @@
-import React from 'react';
+import React, {  useState } from 'react';
 
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import Logo from '../logo/Logo';
+import useAuth from '../../Hooks/useAuth';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const Header = () => {
-
-
+const {loading, user, setUser, signOutFunction,} = useAuth();
+const {handleSubmit} = useForm();
+const [hover, setHover] = useState(false)
+const handleSignOut = () =>{
+signOutFunction()
+.then(()=>{
+  setUser(null)
+  toast.success('Log Out Successfully')
+})
+.catch((err)=> toast.error(err))
+}
  const navLinks = (
     <>
       <NavLink className={"navLInk"} to={"/"}>
@@ -53,15 +65,15 @@ const Header = () => {
             </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className=" flex gap-5 font-semibold text-[15px] text-[var(--color-text)]">
+          <ul className=" flex gap-5 font-semibold text-[15px] text-secondary">
             {navLinks}
           </ul>
         </div>
-        {/* <div className="navbar-end">
+        <div className="navbar-end">
           {loading ? (
             <Circles height="50" width="50" color="#FF5A3C" />
           ) : !user ? (
-            <Link to={"/login"} className="btn  my-button">
+            <Link to={"/login"} className="btn  bg-primary hover:text-white hover:bg-secondary">
               SingUp/LogIn
             </Link>
           ) : (
@@ -75,7 +87,7 @@ const Header = () => {
                   user?.photoURL || `https://i.ibb.co.com/spx4GtRN/login.jpg`
                 }
                 alt="User"
-                className="w-12 h-12 rounded-full border-2 border-[var(--primary-color)] cursor-pointer"
+                className="w-12 h-12 rounded-full border-2 border-primary cursor-pointer"
               />
 
               {hover && (
@@ -87,8 +99,13 @@ const Header = () => {
                     {user?.email || "User"}
                   </p>
                   <button
-                    onClick={handleSignOut}
-                    className="btn btn-sm mt-2 w-full bg-[var(--primary-color)] text-white"
+                    className="btn btn-sm mt-2 w-full bg-secondary text-white"
+                  >
+                    Dashboard
+                  </button>
+                  <button
+                    onClick={handleSubmit(handleSignOut)}
+                    className="btn btn-sm mt-2 w-full bg-primary text-white"
                   >
                     Sign Out
                   </button>
@@ -96,7 +113,7 @@ const Header = () => {
               )} 
             </div>
           )}
-        </div> */}
+        </div>
       </div>
     </div>
         </div>

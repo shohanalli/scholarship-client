@@ -4,7 +4,7 @@ import heroImg from '../../image/hero.png'
 const Hero = () => {
 return (
 <section
-  className="w-full h-[80vh] bg-cover bg-left md:bg-center relative flex  items-center justify-center md:justify-start"
+  className="w-full h-[80vh] bg-cover bg-left md:bg-center relative flex items-center justify-center md:justify-start"
   style={{ backgroundImage: `url(${heroImg})` }}
 >
   <div className="relative z-10  px-4 max-w-2xl w-full">
@@ -19,9 +19,9 @@ return (
       <input
         type="text"
         placeholder="Search here..."
-        className=" md:flex-1 px-4 py-3 rounded-lg text-secondary outline-1"
+        className=" md:flex-1 px-4 py-3 rounded-xl text-secondary outline-1"
       />
-      <button className="px-6 py-3 bg-primary font-semibold">
+      <button className="px-6 py-3 bg-primary rounded-lg font-semibold">
         Search
       </button>
     </div>

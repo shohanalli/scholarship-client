@@ -41,37 +41,17 @@ const Footer = () => {
           <a className="link link-hover">Industry Leader</a>
           <a className="link link-hover">Military Student</a>
         </nav>
+
       </footer>
+<aside className="w-full border-t border-white/50 text-white bg-[#16425B] py-4 text-center text-sm md:text-base">
+  <p>
+    © {new Date().getFullYear()} — All rights reserved by 
+    <span className="font-semibold"> this website</span>
+  </p>
+</aside>
     </div>
   );
 };
 
 export default Footer;
-<footer className="footer sm:footer-horizontal bg-primary-content text-white/60 p-10">
-  <aside>
-    <Logo />
-    <ul>
-        <li></li>
-    </ul>
-  </aside>
-  <nav>
-    <h6 className="footer-title">Services</h6>
-    <a className="link link-hover">Branding</a>
-    <a className="link link-hover">Design</a>
-    <a className="link link-hover">Marketing</a>
-    <a className="link link-hover">Advertisement</a>
-  </nav>
-  <nav>
-    <h6 className="footer-title">Company</h6>
-    <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Jobs</a>
-    <a className="link link-hover">Press kit</a>
-  </nav>
-  <nav>
-    <h6 className="footer-title">Legal</h6>
-    <a className="link link-hover">Terms of use</a>
-    <a className="link link-hover">Privacy policy</a>
-    <a className="link link-hover">Cookie policy</a>
-  </nav>
-</footer>;
+

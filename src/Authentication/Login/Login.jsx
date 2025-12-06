@@ -3,15 +3,22 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate,  } from 'react-router';
 import Image from '../../image/login.png'
 import SocialLogin from '../SocialLogin/SocialLogin';
+import useAuth from '../../Hooks/useAuth';
+import { toast } from 'react-toastify';
 
 const Login = () => {
-    const {register, handleSubmit} = useForm()
+    const {register, handleSubmit} = useForm();
+    const {signInUser} = useAuth()
     const naviget = useNavigate();
     const location = useLocation();
 
 
-    const handelLogin =()=>{
-
+    const handelLogin =(data)=>{
+        signInUser(data.email, data.password)
+        .then(()=>{
+         toast.success('Login Succesfully')
+         naviget(location?.state || '/')})
+        .catch((err)=>toast.error(err))
     }
 
 
