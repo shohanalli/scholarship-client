@@ -10,6 +10,7 @@
   default: true;
   --color-secondary: #000927;
   --color-primary: #F94C10;
+  --color-primary-content: #16425B;
 }
 
 body{

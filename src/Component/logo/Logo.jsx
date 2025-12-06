@@ -3,7 +3,7 @@ import { IoSchoolOutline } from 'react-icons/io5';
 const Logo = () => {
     return (
         <div className="flex gap-2 items-center justify-center ">
-            <a href="./" className="hidden md:block">
+            <a href="./" className="block">
               <IoSchoolOutline size={50} color="#F94C10"/>
             </a>
             <a
