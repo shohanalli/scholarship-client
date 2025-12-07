@@ -52,10 +52,9 @@ const AuthProvider = ({children}) => {
         updateUserProfile
 
     }
-
     return (
         <AuthContext value={authValue}>
-        {loading ? <Loading /> : children}
+        {children}
        </AuthContext>
     );
 };

@@ -2,16 +2,30 @@ import React from 'react';
 import useAuth from '../../Hooks/useAuth';
 import { toast } from 'react-toastify';
 import { useLocation, useNavigate } from 'react-router';
+import UseAxiosSecure from '../../Hooks/UseAxios/UseAxiosSecure';
 
 const SocialLogin = () => {
   const {signInGoogle} = useAuth()
       const naviget = useNavigate();
+      const axiosSecure = UseAxiosSecure();
     const location = useLocation();
   const handelGoogleLogin = () =>{
     signInGoogle()
-    .then(()=>{
+    .then((res)=>{
+      console.log(res)
       toast.success('Succesfuly Login With gmail')
-      naviget(location?.state || '/')
+       naviget(location?.state || '/')
+        //create user and send data server
+        const userInfo = {
+          email: res.user.email,
+          displayName: res.user.displayName,
+          photoURL: res.user.photoURL,
+        };
+         axiosSecure.post('/users', userInfo)
+        .then(res=>{
+          console.log(res.data);
+         
+        })
     })
     .catch(err=>{
       toast.err(err)

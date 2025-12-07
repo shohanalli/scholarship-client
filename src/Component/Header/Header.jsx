@@ -71,7 +71,7 @@ signOutFunction()
         </div>
         <div className="navbar-end">
           {loading ? (
-            <Circles height="50" width="50" color="#FF5A3C" />
+            <span className="loading loading-spinner loading-xl"></span>
           ) : !user ? (
             <Link to={"/login"} className="btn  bg-primary hover:text-white hover:bg-secondary">
               SingUp/LogIn

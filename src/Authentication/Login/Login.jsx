@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 const Login = () => {
     const {register, handleSubmit} = useForm();
-    const {signInUser} = useAuth()
+    const {signInUser, setLoading} = useAuth()
     const naviget = useNavigate();
     const location = useLocation();
 
@@ -16,14 +16,19 @@ const Login = () => {
     const handelLogin =(data)=>{
         signInUser(data.email, data.password)
         .then(()=>{
-         toast.success('Login Succesfully')
-         naviget(location?.state || '/')})
-        .catch((err)=>toast.error(err))
+          toast.success("login successfully")
+          naviget(location?.state || '/')
+        })
+        .catch((err)=>{
+          toast.error(err.message)
+          
+    })
+    .finally(() => setLoading(false));
     }
 
 
     return (
-        <div className=' flex flex-col md:flex-row w-[95%] md:w-[90%] mx-auto justify-between items-center min-h-screen'>
+        <div className=' flex flex-col-reverse md:flex-row w-[95%] md:w-[90%] mx-auto justify-between items-center min-h-screen'>
             
         <div className='flex-end'>
             <img src={Image} alt="" />
