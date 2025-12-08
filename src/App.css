@@ -23,3 +23,6 @@ body{
 a.active{
   @apply border-b-2 text-primary border-primary 
 }
+.my-button{
+  @apply cursor-pointer bg-primary text-white rounded-lg border font-semibold text-sm py-3 px-6 hover:bg-white hover:text-primary transition duration-800
+}
