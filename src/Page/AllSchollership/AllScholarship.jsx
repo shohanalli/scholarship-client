@@ -1,28 +1,33 @@
 import React from 'react';
-import { CiMapPin } from 'react-icons/ci';
-import {  Link } from 'react-router';
-import { FaMapMarkerAlt } from "react-icons/fa";
 import useAxios from '../../Hooks/UseAxios/UseAxios';
 import { useQuery } from '@tanstack/react-query';
-import Loading from '../Loading/Loading';
-const HomeCard = () => {
+import Loading from '../../Component/Loading/Loading';
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { Link } from 'react-router';
+
+const AllScholarship = () => {
   const useaxios = useAxios()
   const {data: scholars = [], isLoading} = useQuery({
     queryKey: ['scholars'],
     queryFn: async () =>{
       const res = await useaxios.get('/scholarships');
-      return res.data.slice(0,6)
+      return res.data
     }
   })
 
   if(isLoading) return<Loading />
-return (
-    <div>
-      <div className="container mx-auto px-4 py-15 ">
+
+
+    return (
+        <div>
+        <div className="container mx-auto px-4 py-15">
         <div className="text-center pb-8">
-          <h1 className="text-secondary text-4xl font-bold mb-5">
-            Top most interesting ScholarShip
+          <h1 className="text-secondary text-4xl font-bold mb-2">
+            All Properties
           </h1>
+          <p className="text-base font-semibold text-black/60 mb-2">
+            Find Your Scholarship
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 w-[95%]  mx-auto">
           {scholars.map((scholar)=>
@@ -82,15 +87,9 @@ return (
           )}
 
         </div>
-          <div className='mt-10 text-center'>
-          <Link to={'/all-scholarship'} className ="my-button">
-          View All
-        </Link>
-          </div>
       </div>
-
-    </div>
-  );
+        </div>
+    );
 };
 
-export default HomeCard;
+export default AllScholarship;

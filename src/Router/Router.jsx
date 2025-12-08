@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../Page/Home/Home";
-import AllSchollership from "../Page/AllSchollership/AllSchollership";
 import AuthLayout from "../Layout/AuthLayout";
 import Login from "../Authentication/Login/Login";
 import Register from "../Authentication/Register/Register";
 import PrivetRouter from "./PrivetRouter/PrivetRouter";
+import AllScholarship from "../Page/AllSchollership/AllScholarship";
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
         },
         {
         path: '/all-scholarship',
-        element : <AllSchollership />,
+        element: <AllScholarship />
         },
         
     ]
