@@ -60,7 +60,7 @@ signOutFunction()
               {navLinks}
             </ul>
           </div>
-            <div>
+            <div className='hidden md:block'>
                 {<Logo />}
             </div>
         </div>
@@ -98,11 +98,11 @@ signOutFunction()
                   <p className="text-center  font-medium ">
                     {user?.email || "User"}
                   </p>
-                  <button
+                  <Link to={'/dashboard'}
                     className="btn btn-sm mt-2 w-full bg-secondary text-white"
                   >
                     Dashboard
-                  </button>
+                  </Link>
                   <button
                     onClick={handleSubmit(handleSignOut)}
                     className="btn btn-sm mt-2 w-full bg-primary text-white"

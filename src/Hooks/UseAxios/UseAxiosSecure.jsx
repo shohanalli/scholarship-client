@@ -11,7 +11,7 @@ const UseAxiosSecure = () => {
   const {user, signOutFunction} = useAuth();
   const naviget = useNavigate()
 
-  console.log(user)
+
   useEffect(()=>{
       if (!user) return;
       // interceptor request 

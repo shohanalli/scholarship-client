@@ -26,7 +26,7 @@ return (
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 w-[95%]  mx-auto">
           {scholars.map((scholar)=>
-        <div className="bg-white rounded-xl shadow-lg  hover:shadow-2xl transition-all duration-800 relative cursor-pointer w-full  min-h-[470px]">
+        <div key={scholar._id} className="bg-white rounded-xl shadow-lg  hover:shadow-2xl transition-all duration-800 relative cursor-pointer w-full  min-h-[470px]">
         <div className="relative h-60 w-full overflow-hidden rounded-lg">
           <img
             src={scholar.Image}
@@ -71,7 +71,7 @@ return (
               { scholar.ApplicationFees }
             </h2>
             <Link
-              to={`/all-scholarship/${scholar._id}`}
+              to={`/scholarship-details/${scholar._id}`}
               className="cursor-pointer text-primary/80 rounded-lg border font-semibold text-sm py-2 px-3 hover:bg-primary/90 hover:text-white transition duration-800"
             >
               View Details
