@@ -57,7 +57,7 @@ const PaymentSuccess = () => {
             Payment Successful
           </h2>
       <button onClick={()=>navigate('/dashboard')} className="px-6 cursor-pointer py-3 bg-primary text-white  font-semibold rounded-md hover:bg-primary/80 transition">
-        Go to My Applications
+        Go to Dashboard
       </button>
         </div>
       </div>

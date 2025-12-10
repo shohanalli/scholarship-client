@@ -1,10 +1,42 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router";
 import img from '../../image/cancel.png'
+import UseAxiosSecure from "../../Hooks/UseAxios/UseAxiosSecure";
 const PaymentCancel = () => {
+    const [searchParams] = useSearchParams();
+    const [paymentInfo, setPaymentInfo] = useState({});
+      // const [err, setErr] = useState({})
+    const sectionId = searchParams.get("session_id");
+    const axiosSecure = UseAxiosSecure();
+    console.log(sectionId);
+    useEffect(() => {
+      if (sectionId) {
+        axiosSecure
+          .patch(`/payment-cancel?session_id=${sectionId}`)
+          .then((res) => {
+            setPaymentInfo({
+              transactionId: res.data.transactionId,
+              trackingId: res.data.trackingId,
+              universityName: res.data.universityName,
+              amount: res.data.amount,
+              scholarshipName: res.data.scholarshipName,
+            });
+            
+          });
+          // .catch(err=> {setErr(err)});
+      }
+    }, [sectionId, axiosSecure]);
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="text-center space-y-4">
+        <h2 className="text-base text-secondary font-bold">
+         UniversityName :    
+          <span className="text-primary-content"> { paymentInfo.universityName }</span>
+        </h2>
+        {/* <h2 className="text-base text-secondary font-bold">
+         Err :  
+          <span className="text-primary-content">{err.message}</span>
+        </h2> */}
         <img
           src={img}
           alt="Cancel"
@@ -15,7 +47,7 @@ const PaymentCancel = () => {
           Payment Cancel
         </h2>
 
-        <Link to="/all-scholarship">
+        <Link to='/dashboard/my-application'>
           <button className="btn btn-primary text-white">Return to Dashboard</button>
         </Link>
       </div>

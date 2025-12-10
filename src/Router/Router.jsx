@@ -12,6 +12,7 @@ import Payment from "../Page/Payment/Payment";
 import PaymentCancel from "../Page/PaymentCancel/PaymentCancel";
 import PaymentSuccess from "../Page/Home/PaymentSuccess/PaymentSuccess";
 import DashboardHome from "../Page/Dashboard/DashboardHome/DashboardHome";
+import MyApplication from "../Page/MyApplication/MyApplication";
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
             {
         index: true,
         element: <DashboardHome />
+      },
+      {
+        path:'my-application',
+        element: <MyApplication />
       },
       {
         path : 'payment/:scholarId',
