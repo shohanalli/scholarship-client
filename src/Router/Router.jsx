@@ -11,6 +11,7 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import Payment from "../Page/Payment/Payment";
 import PaymentCancel from "../Page/PaymentCancel/PaymentCancel";
 import PaymentSuccess from "../Page/Home/PaymentSuccess/PaymentSuccess";
+import DashboardHome from "../Page/Dashboard/DashboardHome/DashboardHome";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
     path: 'dashboard',
     element: <PrivetRouter><DashboardLayout /></PrivetRouter>,
     children:[
+            {
+        index: true,
+        element: <DashboardHome />
+      },
       {
         path : 'payment/:scholarId',
         element: <Payment />

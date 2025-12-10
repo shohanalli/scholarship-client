@@ -16,7 +16,7 @@ const PaymentCancel = () => {
         </h2>
 
         <Link to="/all-scholarship">
-          <button className="btn btn-primary text-secondary">Go Back</button>
+          <button className="btn btn-primary text-white">Return to Dashboard</button>
         </Link>
       </div>
     </div>

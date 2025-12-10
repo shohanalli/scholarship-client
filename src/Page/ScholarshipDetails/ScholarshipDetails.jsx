@@ -39,14 +39,16 @@ const handleApplyAndPay = async () => {
     scholarshipId: scholars._id,
   };
 
-  await useAxiosSecure.post("/applications", applicationData);
-
+ const applicationRes = await useAxiosSecure.post("/applications", applicationData);
+const applicationId = applicationRes.data.insertedId;
 // Payment Checkout Session Create
   const paymentInfo = {
     userEmail: user.email,
+    applicationId: applicationId,
     scholarshipId: scholars._id,
     scholarshipName: scholars.ScholarshipName,
     applicationFees: scholars.ApplicationFees,
+    universityName: scholars.UniversityName,
   };
   const res = await useAxiosSecure.post('/create-checkout-section', paymentInfo);
   window.location.assign(res.data.url);
