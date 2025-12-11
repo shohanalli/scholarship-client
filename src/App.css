@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+
  @plugin "daisyui" {
    themes: light --default;
  }
@@ -26,3 +27,4 @@ a.active{
 .my-button{
   @apply cursor-pointer bg-primary text-white rounded-lg border font-semibold text-sm py-3 px-6 hover:bg-white hover:text-primary transition duration-800
 }
+
