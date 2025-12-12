@@ -23,7 +23,6 @@ const PaymentCancel = () => {
             });
             
           });
-          // .catch(err=> {setErr(err)});
       }
     }, [sectionId, axiosSecure]);
   return (
@@ -33,10 +32,6 @@ const PaymentCancel = () => {
          UniversityName :    
           <span className="text-primary-content"> { paymentInfo.universityName }</span>
         </h2>
-        {/* <h2 className="text-base text-secondary font-bold">
-         Err :  
-          <span className="text-primary-content">{err.message}</span>
-        </h2> */}
         <img
           src={img}
           alt="Cancel"

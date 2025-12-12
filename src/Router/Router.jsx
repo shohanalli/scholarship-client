@@ -13,6 +13,9 @@ import PaymentCancel from "../Page/PaymentCancel/PaymentCancel";
 import PaymentSuccess from "../Page/Home/PaymentSuccess/PaymentSuccess";
 import DashboardHome from "../Page/Dashboard/DashboardHome/DashboardHome";
 import MyApplication from "../Page/MyApplication/MyApplication";
+import MyReview from "../Page/MyReview/MyReview";
+import StudentRouter from "./StudentRouter/StudentRouter";
+import AdminRouter from "./AdminRouter/AdminRouter";
 
 export const router = createBrowserRouter([
   {
@@ -56,9 +59,14 @@ export const router = createBrowserRouter([
         index: true,
         element: <DashboardHome />
       },
+      // this page only using student
       {
         path:'my-application',
-        element: <MyApplication />
+        element:<StudentRouter> <MyApplication /></StudentRouter>
+      },
+      {
+        path:'my-review',
+        element: <MyReview />
       },
       {
         path : 'payment/:scholarId',

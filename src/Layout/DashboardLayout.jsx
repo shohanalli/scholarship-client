@@ -5,7 +5,7 @@ import Logo from '../Component/logo/Logo';
 import { IoSchoolOutline } from 'react-icons/io5';
 import { PiHandTapLight } from "react-icons/pi";
 import UseRole from '../Hooks/Userole/UseRole';
-
+import { MdOutlineRateReview } from "react-icons/md";
 
 
 
@@ -54,13 +54,20 @@ const DashboardLayout = () => {
         {/* sidebar item is here ****************************************** */}
         {/*################# dashboard sidebar for students############ */}
        {role === 'student' &&
+       <>
         <li>
-            <NavLink to='/dashboard/my-application' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Payment-Details">
+            <NavLink to='/dashboard/my-application' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="my-application">
             <PiHandTapLight className="my-1.5 inline-block size-4"/>
             <span className="is-drawer-close:hidden">My Application</span>
             </NavLink>
         </li>
-        
+        <li>
+            <NavLink to='/dashboard/my-review' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="my-review">
+            <MdOutlineRateReview className="my-1.5 inline-block size-4"/>
+            <span className="is-drawer-close:hidden">my-review</span>
+            </NavLink>
+        </li>
+        </>
         
         }
         {/* List item */}

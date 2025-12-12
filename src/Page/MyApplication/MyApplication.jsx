@@ -41,8 +41,20 @@ const MyApplication = () => {
   const handelReviewFrom = async(data) => {
     try{
       const reviewData = {
-        reviewText : data.reviewText,
+        reviewComment : data.reviewText,
         rating : ratingValue,
+        reviewerImage: user?.photoURL,
+        reviewDate: new Date().toLocaleDateString(),
+        scholarshipName : modalApplication.scholarshipName,
+        degree: modalApplication.degree,
+        scholarshipCategory: modalApplication.scholarshipCategory,
+        subjectCategory: modalApplication.subjectCategory,
+        universityAddress: modalApplication.universityAddress,
+        userEmail: modalApplication.userEmail,
+        userName: modalApplication.userName,
+        universityName: modalApplication.universityName,
+        scholarImages: modalApplication.scholarImages,  
+
       }
 
       const res = await axiosSecure.post('/reviews', reviewData);
@@ -337,6 +349,8 @@ const MyApplication = () => {
                 {...register("reviewText", { required: true })}
               ></textarea>
             </div>
+            {/* scholarshipName */}
+
 
             <button className="btn bg-secondary text-white">
               Submit Your Review
