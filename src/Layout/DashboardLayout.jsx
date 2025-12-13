@@ -2,13 +2,13 @@ import React from 'react';
 import { FaCreditCard } from 'react-icons/fa';
 import { Link, NavLink, Outlet } from 'react-router';
 import Logo from '../Component/logo/Logo';
-import { IoSchoolOutline } from 'react-icons/io5';
+import { IoSchoolOutline, IoAnalyticsSharp } from 'react-icons/io5';
 import { PiHandTapLight } from "react-icons/pi";
 import UseRole from '../Hooks/Userole/UseRole';
 import { MdOutlineRateReview } from "react-icons/md";
 import { AiFillFileAdd } from "react-icons/ai";
 import { FaManatSign } from "react-icons/fa6";
-
+import { GrUserManager } from "react-icons/gr";
 
 
 const DashboardLayout = () => {
@@ -67,6 +67,18 @@ const DashboardLayout = () => {
             <NavLink to='/dashboard/manage-scholarships' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="manage-scholarships">
             <FaManatSign className="my-1.5 inline-block size-4"/>
             <span className="is-drawer-close:hidden">Manage Scholarships</span>
+            </NavLink>
+        </li>
+        <li>
+            <NavLink to='/dashboard/manage-users' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="manage users">
+            <GrUserManager className="my-1.5 inline-block size-4"/>
+            <span className="is-drawer-close:hidden">Manage Users</span>
+            </NavLink>
+        </li>
+        <li>
+            <NavLink to='/dashboard/analytics' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="analytics">
+            <IoAnalyticsSharp className="my-1.5 inline-block size-4"/>
+            <span className="is-drawer-close:hidden">Analytics</span>
             </NavLink>
         </li>
 

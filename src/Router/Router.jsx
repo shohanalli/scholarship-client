@@ -17,6 +17,9 @@ import MyReview from "../Page/MyReview/MyReview";
 import StudentRouter from "./StudentRouter/StudentRouter";
 import AdminRouter from "./AdminRouter/AdminRouter";
 import AddScholarship from "../Page/AddScholarship/AddScholarship";
+import ManageScholarships from "../Page/ManageScholarships/ManageScholarships";
+import ManageUsers from "../Page/ManageUsers/ManageUsers";
+import Analytics from "../Page/Analytics/Analytics";
 
 export const router = createBrowserRouter([
   {
@@ -64,6 +67,18 @@ export const router = createBrowserRouter([
       {
         path: 'add-scholarship',
         element: <AdminRouter> <AddScholarship /></AdminRouter>
+      },
+      {
+        path: 'manage-scholarships',
+        element: <AdminRouter> <ManageScholarships /></AdminRouter>
+      },
+      {
+        path: 'manage-users',
+        element: <AdminRouter> <ManageUsers /></AdminRouter>
+      },
+      {
+        path: 'analytics',
+        element: <AdminRouter> <Analytics /></AdminRouter>
       },
       // this page only using student
       {
