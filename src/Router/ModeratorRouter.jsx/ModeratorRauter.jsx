@@ -12,23 +12,25 @@ const {loading, user} = useAuth()
     }
 if(role !== 'moderator'){
     return <>
-    <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="text-center space-y-4">
-        <h2 className="text-base text-secondary font-bold">
-         Forbidden Error
-        </h2>
-        <img
-          src={img}
-          alt="Cancel"
-          className="mx-auto w-50 md:w-65 lg:w-80 object-contain"
-        />
-        <h2 className="text-2xl md:text-3xl font-bold text-secondary">
-          You are Not a Moderator
-        </h2>
-      </div>
-    <Link to={'/'} className='btn bg-secondary text-white'>Go home</Link>
-    <Link to={'/dashboard'} className='btn bg-primary'>Go Dashboard</Link>
+      <div className="min-h-screen flex flex-col items-center justify-center px-2">
+        <div className="text-center space-y-4">
+          <h2 className=" text-secondary text-2xl font-bold">
+           Forbidden Error
+          </h2>
+          <img
+            src={img}
+            alt="Cancel"
+            className="mx-auto w-50 md:w-65 lg:w-80 object-contain"
+          />
+          <h2 className="text-2xl md:text-3xl font-bold text-secondary">
+            You are Not a Moderator
+          </h2>
+        </div>
+    <div className='flex flex-col md:flex-row'>
+          <Link to={'/'} className='btn bg-secondary text-white'>Go home</Link>
+      <Link to={'/dashboard'} className='btn bg-primary'>Go Dashboard</Link>
     </div>
+      </div>
 
     </>
 }

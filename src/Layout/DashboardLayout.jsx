@@ -6,6 +6,8 @@ import { IoSchoolOutline } from 'react-icons/io5';
 import { PiHandTapLight } from "react-icons/pi";
 import UseRole from '../Hooks/Userole/UseRole';
 import { MdOutlineRateReview } from "react-icons/md";
+import { AiFillFileAdd } from "react-icons/ai";
+import { FaManatSign } from "react-icons/fa6";
 
 
 
@@ -52,6 +54,31 @@ const DashboardLayout = () => {
           </NavLink>
         </li>
         {/* sidebar item is here ****************************************** */}
+        {/* ######################Dashboard sidebar of admin &&&&&&&&&&&&&&&&&&& */}
+        {role === 'admin' && 
+        <>
+        <li>
+            <NavLink to='/dashboard/add-scholarship' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="add-Scholarship">
+            <AiFillFileAdd className="my-1.5 inline-block size-4"/>
+            <span className="is-drawer-close:hidden">Add Scholarship</span>
+            </NavLink>
+        </li>
+        <li>
+            <NavLink to='/dashboard/manage-scholarships' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="manage-scholarships">
+            <FaManatSign className="my-1.5 inline-block size-4"/>
+            <span className="is-drawer-close:hidden">Manage Scholarships</span>
+            </NavLink>
+        </li>
+
+        
+        </>
+        }
+
+
+
+
+
+
         {/*################# dashboard sidebar for students############ */}
        {role === 'student' &&
        <>

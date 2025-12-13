@@ -16,6 +16,7 @@ import MyApplication from "../Page/MyApplication/MyApplication";
 import MyReview from "../Page/MyReview/MyReview";
 import StudentRouter from "./StudentRouter/StudentRouter";
 import AdminRouter from "./AdminRouter/AdminRouter";
+import AddScholarship from "../Page/AddScholarship/AddScholarship";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,11 @@ export const router = createBrowserRouter([
             {
         index: true,
         element: <DashboardHome />
+      },
+      // this page only using admin
+      {
+        path: 'add-scholarship',
+        element: <AdminRouter> <AddScholarship /></AdminRouter>
       },
       // this page only using student
       {
