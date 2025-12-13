@@ -66,7 +66,7 @@ export const router = createBrowserRouter([
       },
       {
         path:'my-review',
-        element: <MyReview />
+        element:<StudentRouter> <MyReview /> </StudentRouter>
       },
       {
         path : 'payment/:scholarId',

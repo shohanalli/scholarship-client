@@ -14,6 +14,7 @@ const MyApplication = () => {
   const { handleSubmit, register, reset } = useForm();
 
   const [modalApplication, setModalApplication] = useState({});
+  const[reviewApplication, setReviewApplication] = useState(null)
   const axiosSecure = UseAxiosSecure();
   const { data: applications = [], refetch } = useQuery({
     queryKey: ["myScholar", user?.email],
@@ -24,13 +25,15 @@ const MyApplication = () => {
       return result.data;
     },
   });
-  console.log(applications);
+
+
+
   // application details api for modal
   const handelModal = async (id) => {
     const res = await axiosSecure.get(`/applications/${id}`);
     setModalApplication(res.data);
   };
-  console.log(modalApplication);
+    console.log(modalApplication)
   //handel review modal
   const handelReviewModal = () => {
     reviewModalRef.current?.showModal();
@@ -45,15 +48,17 @@ const MyApplication = () => {
         rating : ratingValue,
         reviewerImage: user?.photoURL,
         reviewDate: new Date().toLocaleDateString(),
-        scholarshipName : modalApplication.scholarshipName,
-        degree: modalApplication.degree,
-        scholarshipCategory: modalApplication.scholarshipCategory,
-        subjectCategory: modalApplication.subjectCategory,
-        universityAddress: modalApplication.universityAddress,
-        userEmail: modalApplication.userEmail,
-        userName: modalApplication.userName,
-        universityName: modalApplication.universityName,
-        scholarImages: modalApplication.scholarImages,  
+        scholarshipId: data.scholarshipId,
+        scholarshipName : reviewApplication.scholarshipName,
+        degree: reviewApplication.degree,
+        scholarshipCategory: reviewApplication.scholarshipCategory,
+        subjectCategory: reviewApplication.subjectCategory,
+        universityAddress: reviewApplication.universityAddress,
+        userEmail: reviewApplication.userEmail,
+        userName: reviewApplication.userName,
+        universityName: reviewApplication.universityName,
+        scholarImages: reviewApplication.scholarImages,
+         
 
       }
 
@@ -116,8 +121,8 @@ const MyApplication = () => {
       text: "Delete this product permanently",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#419528",
-      cancelButtonColor: "#C43D5A",
+      confirmButtonColor: "#c70000",
+      cancelButtonColor: "#419528",
       confirmButtonText: "Deleted",
     }).then(async (result) => {
       if (result.isConfirmed) {
@@ -210,7 +215,12 @@ const MyApplication = () => {
                     Details
                   </button>
                   <button
-                    onClick={handelReviewModal}
+                  
+                    onClick={()=>{
+                      setReviewApplication(application);
+                      handelReviewModal();
+                    }
+                    }
                     className="btn btn-sm bg-secondary/80 text-white"
                   >
                     Add Review
@@ -349,9 +359,6 @@ const MyApplication = () => {
                 {...register("reviewText", { required: true })}
               ></textarea>
             </div>
-            {/* scholarshipName */}
-
-
             <button className="btn bg-secondary text-white">
               Submit Your Review
             </button>
