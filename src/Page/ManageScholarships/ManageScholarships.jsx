@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import UseAxiosSecure from '../../Hooks/UseAxios/UseAxiosSecure';
+import { Link } from 'react-router';
 
 const ManageScholarships = () => {
     const axiosSecure = UseAxiosSecure();
@@ -38,16 +39,12 @@ const ManageScholarships = () => {
                 <td>{scholarship.Country}</td>
                 <td>{scholarship.SubjectCategory}</td>
                 <td className="space-y-1">
-                  <button
-                    onClick={() => {
-                    //   setscholarshipApplication(scholarship);
-                    //   setRatingValue(scholarship.rating);
-                    //   scholarshipModalRef.current.showModal();
-                    }}
+                  <Link
+                    to={`/dashboard/edit-scholarship/${scholarship._id}`}
                     className="btn btn-sm bg-[#135A1F] text-white"
                   >
                     Edit
-                  </button>
+                  </Link>
                   <button
                     // onClick={() => handelDelete(scholarship._id)}
                     className="btn btn-sm bg-[#c70000] text-white"

@@ -60,7 +60,7 @@ const MyReview = () => {
 
         Swal.fire({
           title: "Success!",
-          text: "Your review has been submitted",
+          text: "Your review has been updated",
           icon: "success",
         });
         reviewModalRef.current.close();
