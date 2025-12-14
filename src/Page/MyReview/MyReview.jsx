@@ -26,7 +26,7 @@ const MyReview = () => {
   const handelDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
-      text: "Delete this product permanently",
+      text: "Delete this Review permanently",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#c70000",
@@ -34,7 +34,8 @@ const MyReview = () => {
       confirmButtonText: "Deleted",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/reviews/${id}`).then((res) => {
+        axiosSecure.delete(`/reviews/${id}`)
+        .then((res) => {
           if (res.data.deletedCount) {
             Swal.fire({
               title: "Deleted!",

@@ -97,6 +97,7 @@ const EditScholarship = () => {
         toast.error(err.message);
       });
   };
+  
   {isLoading && <Loading />}
 
   return (

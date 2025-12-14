@@ -21,6 +21,9 @@ import ManageScholarships from "../Page/ManageScholarships/ManageScholarships";
 import ManageUsers from "../Page/ManageUsers/ManageUsers";
 import Analytics from "../Page/Analytics/Analytics";
 import EditScholarship from "../Page/EditScholarship/EditScholarship";
+import ModeratorRauter from "./ModeratorRouter.jsx/ModeratorRauter";
+import ManageApplication from "../Page/ManageApplication/ManageApplicaton";
+import AllReviews from "../Page/AllReviews/AllReviews";
 
 export const router = createBrowserRouter([
   {
@@ -85,6 +88,16 @@ export const router = createBrowserRouter([
         path: 'edit-scholarship/:id',
         element: <AdminRouter> <EditScholarship /></AdminRouter>
       },
+      //this path only use moderator
+      {
+        path: 'manage-applications',
+        element: <ModeratorRauter><ManageApplication /></ModeratorRauter>
+      },
+      {
+        path: 'all-reviews',
+        element: <ModeratorRauter><AllReviews /></ModeratorRauter>
+      },
+
       // this page only using student
       {
         path:'my-application',
