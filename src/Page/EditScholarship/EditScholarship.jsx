@@ -73,7 +73,8 @@ const EditScholarship = () => {
           Deadline: data.applicationDeadline
         };
         console.log(updateScholarData)
-        axiosSecure.patch(`/scholarships/${scholars._id}`, updateScholarData).then((res) => {
+        axiosSecure.patch(`/scholarships/${scholars._id}`, updateScholarData)
+        .then((res) => {
           const result = res.data
           if (result.modifiedCount && result.modifiedCount === 1) {
           Swal.fire({
