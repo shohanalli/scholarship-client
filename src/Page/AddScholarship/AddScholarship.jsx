@@ -265,8 +265,8 @@ const AddScholarship = () => {
                   {...register("degree", { required: true })}
                   className="select"
                 >
-                  <option>degree</option>
-                  <option>Masters</option>
+                  <option>Degree</option>
+                  <option>Master</option>
                   <option>Bachelor</option>
                   <option>Diploma</option>
                 </select>

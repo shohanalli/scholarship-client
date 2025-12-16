@@ -1,6 +1,7 @@
 import React from 'react';
 import UseAxiosSecure from '../../Hooks/UseAxios/UseAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import Swal from 'sweetalert2';
 
 const AllReviews = () => {
     const axiosSecure = UseAxiosSecure();
@@ -11,6 +12,31 @@ const AllReviews = () => {
             return res.data
         }
     })
+    // deleted a review 
+      const handelDelete = (id) => {
+        Swal.fire({
+          title: "Are you sure?",
+          text: "Delete this Review permanently",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#c70000",
+          cancelButtonColor: "#419528",
+          confirmButtonText: "Deleted",
+        }).then(async (result) => {
+          if (result.isConfirmed) {
+            axiosSecure.delete(`/reviews/${id}`).then((res) => {
+              if (res.data.deletedCount) {
+                Swal.fire({
+                  title: "Deleted!",
+                  text: "Your file has been deleted.",
+                  icon: "success",
+                });
+                refetch();
+              }
+            });
+          }
+        });
+      };
     return (
         <div>
     <div className="overflow-x-auto">
@@ -34,11 +60,13 @@ const AllReviews = () => {
               >
                 <th>{index + 1}</th>
                 <td>{review.userName}</td>
-                <td>{review.userEmail}</td>
+                <td>{review.scholarshipName}</td>
 
-                <td>{review.status}</td>
+                <td>{review.reviewComment}</td>
                 <td className="space-y-1 items-end">
-                  <button className="btn btn-sm bg-[#c70000] text-white">
+                  <button 
+                  onClick={()=>handelDelete(review._id)}
+                  className="btn btn-sm bg-[#c70000] text-white">
                     Delete
                   </button>
                 </td>

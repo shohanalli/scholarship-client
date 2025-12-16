@@ -40,8 +40,8 @@ const DashboardLayout = () => {
                 <path d="M14 10l2 2l-2 2"></path>
               </svg>
             </label>
-            <div className="px-4">
-              Scholarship Dashboard for{" "}
+            <div className="px-4 flex gap-2">
+              <span className=" hidden md:block">Scholarship Dashboard for{" "}</span>
               <span className="text-primary">{role}</span>
             </div>
           </nav>

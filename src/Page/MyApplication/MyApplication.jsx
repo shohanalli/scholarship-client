@@ -214,8 +214,8 @@ const MyApplication = () => {
                   >
                     Details
                   </button>
-                  <button
-                  
+                  {
+                    application.status === "completed" ? <button                  
                     onClick={()=>{
                       setReviewApplication(application);
                       handelReviewModal();
@@ -224,7 +224,13 @@ const MyApplication = () => {
                     className="btn btn-sm bg-secondary/80 text-white"
                   >
                     Add Review
+                  </button> : <button
+                    className="btn btn-sm cursor-not-allowed text-white bg-secondary/20"
+                  >
+                    Add Review
                   </button>
+                  }
+
                 </td>
               </tr>
             ))}

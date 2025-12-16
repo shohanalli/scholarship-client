@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import UseAxiosSecure from "../../Hooks/UseAxios/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { FaDownLong, FaUpLong } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const ManageUsers = () => {
   const axiosSecure = UseAxiosSecure();
-
+const [filterRole, setFilterRole] = useState("all");
+const [icon, seticon] = useState(false);
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
@@ -14,6 +16,11 @@ const ManageUsers = () => {
       return res.data;
     },
   });
+
+  const filteredUsers =
+  filterRole === "all"
+    ? users
+    : users.filter(user => user.role === filterRole);
 
   /* change  to Moderator */
   const handelStudent = async (id) => {
@@ -140,6 +147,44 @@ const ManageUsers = () => {
 
   return (
     <div>
+                 <div className="relative">
+                <div
+                onClick={()=>seticon(!icon)}
+                className="dropdown dropdown-end top-0 right-3 -mt-15  absolute">
+                  <div tabIndex={0} role="button" className="btn m-1 text-white bg-[#1A2A80]">
+                    Filter User
+                    {
+                      icon === true ? <span className="mr-0.5"><FaChevronUp /></span> : <span className="mr-0.5"><FaChevronDown /></span>
+                    }
+                    
+                  </div>
+                  <ul
+                    tabIndex="-1"
+                    className="dropdown-content menu text-white bg-[#B2B0E8] rounded-box z-1 w-52 p-2 shadow-sm"
+                  >
+                    <li
+                    onClick={() => setFilterRole("all")}
+                    className="bg-[#7A85C1] rounded-sm">
+                      <a>All</a>
+                    </li>
+                    <li
+                    onClick={() => setFilterRole("admin")}
+                    className="bg-[#7A85C1] rounded-sm mt-0.5">
+                      <a>All Admin</a>
+                    </li>
+                    <li 
+                    onClick={() => setFilterRole("moderator")}
+                    className="bg-[#7A85C1] rounded-sm mt-0.5">
+                      <a>All Moderator</a>
+                    </li>
+                    <li
+                    onClick={() => setFilterRole("student")}
+                    className="bg-[#7A85C1] rounded-sm mt-0.5">
+                      <a>All Student</a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
           <thead>
@@ -153,7 +198,7 @@ const ManageUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
+            {filteredUsers.map((user, index) => (
               <tr
                 className={index % 2 === 0 ? "bg-[#DAE4F4]" : "bg-[#EDF2F6]"}
                 key={user._id}
@@ -164,8 +209,7 @@ const ManageUsers = () => {
                 <td className=" text-center">{user.role}</td>
                 <td className=" text-center">{user.createAt?.slice(0, 10)}</td>
                 <td className="flex justify-center">
-                 
-                   {/* button for student  */}
+                  {/* button for student  */}
                   {user.role === "student" && (
                     <>
                       <button
@@ -229,8 +273,8 @@ const ManageUsers = () => {
                   >
                     Delete
                   </button>
-                 
                 </td>
+                
               </tr>
             ))}
           </tbody>

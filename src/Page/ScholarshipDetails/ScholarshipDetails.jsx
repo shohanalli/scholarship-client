@@ -7,6 +7,7 @@ import { Link,    useParams } from "react-router";
 import UseRole from "../../Hooks/Userole/UseRole";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import Review from "../Review/Review";
 
 const ScholarshipDetails = () => {
   const useAxiosSecure = UseAxiosSecure();
@@ -98,7 +99,7 @@ const applicationId = applicationRes.data.insertedId;
               alt="Property"
             />
             <p className="text-xl text-secondary font-bold my-5">
-              <span className="text-primary">Coverage :</span>
+              <span className="text-primary">Coverage : </span>
               {CoverageDetails}
             </p>
             <p className="text-base text-secondary/70 font-bold mt-5">
@@ -165,6 +166,7 @@ const applicationId = applicationRes.data.insertedId;
           )}
         </aside>
       </div>
+      <Review />
     </div>
   );
 };

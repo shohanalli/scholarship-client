@@ -1,7 +1,7 @@
 import React from 'react';
 import heroImg from '../../image/hero.png'
 
-const Hero = () => {
+const Hero = ({ setSearchText }) => {
 return (
 <section
   className="w-full h-[80vh] bg-cover bg-left md:bg-center relative flex items-center justify-center md:justify-start"
@@ -18,10 +18,13 @@ return (
     <div className="flex flex-col md:flex-row gap-3 w-full mx-auto">
       <input
         type="text"
+        onChange={(e) => setSearchText(e.target.value)}
         placeholder="Search here..."
         className=" md:flex-1 px-4 py-3 rounded-xl text-secondary outline-1"
       />
-      <button className="px-6 py-3 bg-primary rounded-lg font-semibold">
+      <button
+       onClick={(e) => setSearchText(e.target.value)}
+      className="px-6 py-3 cursor-pointer bg-primary rounded-lg font-semibold">
         Search
       </button>
     </div>

@@ -70,27 +70,44 @@ const ManageApplication = () => {
           if (res.data.modifiedCount) {
             Swal.fire({
               title: "Updated!",
-              text: "Your User been Updated.",
+              text: "Successfully processing",
               icon: "success",
+              showConfirmButton: false,
+              timer: 1500
             });
             refetch();
           }
   }
   const handelCompleted = async (id) =>{
           const updateStatus = {
-        status: "completed",
+        status: "completed"
       };
     const res = await axiosSecure.patch(`/applications/${id}`, updateStatus);
           if (res.data.modifiedCount) {
             Swal.fire({
               title: "Updated!",
-              text: "Your User been Updated.",
+              text: "Successfully completed",
               icon: "success",
+              showConfirmButton: false,
+              timer: 1500
             });
             refetch();
           }
   };
-  
+  const handelRejected = async (id)=>{
+    const updateStatus = {
+      status: "rejected"
+    }
+        const res = await axiosSecure.patch(`/applications/${id}`, updateStatus);
+          if (res.data.modifiedCount) {
+            Swal.fire({
+              icon: "success",
+              title: "Successfully Reject this Application ",
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }
+  }
 
   return (
     <div>
@@ -131,8 +148,20 @@ const ManageApplication = () => {
                     {application.paymentStatus}
                   </span>
                 </td>
-
-                <td>{application.status}</td>
+                <td >
+                    <span 
+                    className={`px-3 py-2.5 rounded text-white  ${
+                      application.status === "completed"
+                        ? "bg-[#31694E]" :
+                        application.status === "processing"
+                        ? "bg-[#412B6B]" : 
+                        application.status === "rejected" 
+                        ? "bg-[#DC0E0E]" : "bg-[#F87B1B]"
+                    }`}
+                    >
+                      {application.status}
+                    </span>
+                </td>
                 <td>{application.feedback}</td>
                 <td className="grid grid-cols-1 lg:grid-cols-2 gap-2 place-items-center">
                   <button
@@ -198,10 +227,27 @@ const ManageApplication = () => {
                       </li>
                         </>
                       }
+                      {
+                        application.status === "rejected" && 
+                        <>
+                        <li
+                        onClick={()=>handelProcess(application._id)}
+                         className="cursor-not-allowed disabled">
+                        <a>Processing</a>
+                      </li>
+                      <li 
+                      onClick={()=>handelCompleted(application._id)}
+                      className="cursor-not-allowed disabled">
+                        <a>Completed</a>
+                      </li>
+                        </>
+                      }
 
                     </ul>
                   </div>
-                  <button className="btn w-full h-10 btn-sm px-10 lg:px-0 bg-[#c70000] text-white">
+                  <button
+                  onClick={()=>handelRejected(application._id)}
+                  className="btn w-full h-10 btn-sm px-10 lg:px-0 bg-[#c70000] text-white">
                     Cancel
                   </button>
                 </td>

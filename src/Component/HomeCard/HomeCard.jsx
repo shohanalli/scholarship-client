@@ -5,16 +5,21 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import useAxios from '../../Hooks/UseAxios/UseAxios';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../Loading/Loading';
-const HomeCard = () => {
+const HomeCard = ({ searchText }) => {
   const useaxios = useAxios()
   const {data: scholars = [], isLoading} = useQuery({
     queryKey: ['scholars'],
     queryFn: async () =>{
       const res = await useaxios.get('/scholarships');
-      return res.data.slice(0,6)
+      return res.data;
     }
   })
-
+  const filteredScholars = scholars.filter((scholar) =>
+  scholar.ScholarshipName
+    ?.toLowerCase()
+    .includes(searchText.toLowerCase())
+);
+const displayScholars = filteredScholars.slice(0, 6);
   if(isLoading) return<Loading />
 return (
     <div>
@@ -25,7 +30,7 @@ return (
           </h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 w-[95%]  mx-auto">
-          {scholars.map((scholar)=>
+          {displayScholars.map((scholar)=>
         <div key={scholar._id} className="bg-white rounded-xl shadow-lg  hover:shadow-2xl transition-all duration-800 relative cursor-pointer w-full  min-h-[470px]">
         <div className="relative h-60 w-full overflow-hidden rounded-lg">
           <img
