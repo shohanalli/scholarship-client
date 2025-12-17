@@ -8,6 +8,7 @@ import UseRole from "../../Hooks/Userole/UseRole";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import Review from "../Review/Review";
+import DetailsRegister from "../../Component/DetailsRegister/DetailsRegister";
 
 const ScholarshipDetails = () => {
   const useAxiosSecure = UseAxiosSecure();
@@ -86,6 +87,7 @@ const applicationId = applicationRes.data.insertedId;
   if (isLoading || roleLoading) return <Loading />;
 
   return (
+    <>
     <div className="py-15 w-11/12  mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-3">
         <aside className="col-span-2">
@@ -167,7 +169,10 @@ const applicationId = applicationRes.data.insertedId;
         </aside>
       </div>
       <Review />
+    
     </div>
+      <DetailsRegister />
+      </>
   );
 };
 
