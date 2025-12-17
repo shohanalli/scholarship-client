@@ -89,7 +89,7 @@ return (
         </div>
           <div className='mt-10 text-center'>
           <Link to={'/all-scholarship'} className ="my-button">
-          View All
+          View All Scholars
         </Link>
           </div>
       </div>
