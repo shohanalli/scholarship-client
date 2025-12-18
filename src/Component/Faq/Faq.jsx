@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import image from "../../image/Screensho9.png";
 const Faq = () => {
   return (
-    <div className="w-11/12 md:w-10/12 mx-auto py-15 md:py-24 flex flex-col md:flex-row gap-5">
+    <div className="w-11/12 md:w-10/12 mx-auto py-15 md:py-24 flex flex-col md:flex-row gap-5 overflow-x-hidden">
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}

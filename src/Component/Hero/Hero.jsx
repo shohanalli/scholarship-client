@@ -7,7 +7,7 @@ return (
   className="w-full h-[80vh] bg-cover bg-left md:bg-center relative flex items-center justify-center md:justify-start"
   style={{ backgroundImage: `url(${heroImg})` }}
 >
-  <div className="relative z-10  px-4 max-w-2xl w-full">
+  <div className="relative z-10  px-4 max-w-2xl w-11/12 md:w-10/12">
     <h1 className="text-4xl md:text-6xl font-bold text-secondary mb-4">
       Find Your Perfect Opportunity
     </h1>
