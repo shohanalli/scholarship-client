@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 
 const axiose = axios.create({
-baseURL: 'http://localhost:3000',
+baseURL: 'https://assignment-11-server-theta-pearl.vercel.app',
 
 });
 const useAxios = () => {

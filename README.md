@@ -1,16 +1,94 @@
-# React + Vite
+###### Scholarship Platform
+A full-stack scholarship management platform where students can apply for scholarships, admins can manage scholarships and moderator manage the application.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Live Website: https://scholarship-84752.web.app 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Features
 
-## React Compiler
+## Admin 
+-- Profile
+--Add Scholarship
+--Manage Scholarships
+--Scholarships Update, Delete
+--Manage User
+--Filter Student/Moderator/Admin.
+--Change Role Promote Student to Moderator or Admin, or demote Delete User.
+--Total Users, Total Fees Collected, Total Scholarships.
+--A Bar Chart or Pie Chart showing application counts per Scholarship Category.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Moderator
+--View profile info.
+--Manage Applied Applications
+--full applicant and scholarship details.
+--write feedback.
+--change status
+--reject the application
+--See all reviews posted by students. 
+--Delete
 
-## Expanding the ESLint configuration
+## Student
+--View profile info.
+--all scholarships the student has applied
+--full application details.
+--view application status
+--Delete application
+--Add Review
+--My Reviews 
+--update the review and rating.
+--Removes the review.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Payment System
+
+--Checkout Page
+--Stripe Integration.
+--Save Application.
+--Payment Success Page -
+--Loading pages 
+--404 Error page.
+
+
+
+## Tech Stack
+
+### Frontend
+- React
+- Tailwind CSS
+- TanStack Query
+- Axios
+- Framer Motion
+-react-icons
+-react-router
+-react-toastify
+-recharts
+-swiper
+-sweetalert2
+-lottie-react
+-firebase
+-daisyui
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- JWT Authentication
+
+
+## Authentication
+
+- JWT based authentication
+- Role-based access (Admin / User /Moderator)
+- Protected routes
+
+##  Installation
+### Client
+npm run dev
+
+## server
+nodemon index.js
+
+## Author
+
+- Name: MD.Shohan Ali
+- GitHub: https://github.com/shohanalli
+- LinkedIn: www.linkedin.com/in/md-shohan-ali-799088241

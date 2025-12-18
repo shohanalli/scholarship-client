@@ -1,24 +1,22 @@
 import React from "react";
-
-import UseAxiosSecure from "../../Hooks/UseAxios/UseAxiosSecure";
 import Loading from "../../Component/Loading/Loading";
 import { useQuery } from "@tanstack/react-query";
 import { Link,    useParams } from "react-router";
 import UseRole from "../../Hooks/Userole/UseRole";
 import useAuth from "../../Hooks/useAuth";
-import Swal from "sweetalert2";
 import Review from "../Review/Review";
 import DetailsRegister from "../../Component/DetailsRegister/DetailsRegister";
+import UseAxiosSecure from "../../Hooks/UseAxios/UseAxiosSecure";
 
 const ScholarshipDetails = () => {
-  const useAxiosSecure = UseAxiosSecure();
+  const useAxiose = UseAxiosSecure();
   const { user } = useAuth();
-  const { role, roleLoading } = UseRole();
+  const { role } = UseRole();
   const { id } = useParams();
   const { data: scholars = [], isLoading } = useQuery({
     queryKey: ["scholars", id],
     queryFn: async () => {
-      const res = await useAxiosSecure.get(`/scholarships/${id}`);
+      const res = await useAxiose.get(`/scholarships/${id}`);
       return res.data;
     },
   });
@@ -45,7 +43,7 @@ const handleApplyAndPay = async () => {
 
   };
 
- const applicationRes = await useAxiosSecure.post("/applications", applicationData);
+ const applicationRes = await useAxiose.post("/applications", applicationData);
 const applicationId = applicationRes.data.insertedId;
 
 // Payment Checkout Session Create
@@ -58,7 +56,7 @@ const applicationId = applicationRes.data.insertedId;
     universityName: scholars.UniversityName,
     status: applicationData.status
   };
-  const res = await useAxiosSecure.post('/create-checkout-section', paymentInfo);
+  const res = await useAxiose.post('/create-checkout-section', paymentInfo);
   console.log(res.data)
   window.location.assign(res.data.url);
 };
@@ -84,7 +82,7 @@ const applicationId = applicationRes.data.insertedId;
   } = scholars;
   const postdate = new Date(PostDate).toLocaleDateString();
   const dadline = new Date(Deadline).toLocaleDateString();
-  if (isLoading || roleLoading) return <Loading />;
+  if (isLoading) return <Loading />;
 
   return (
     <>
