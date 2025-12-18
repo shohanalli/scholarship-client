@@ -9,7 +9,7 @@ const ManageScholarships = () => {
   const { data: scholarships = [], refetch } = useQuery({
     queryKey: ["scholarships"],
     queryFn: async () => {
-      const result = await axiosSecure.get("/scholarships");
+      const result = await axiosSecure.get("/scholarships/admin");
       return result.data;
     },
   });

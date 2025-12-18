@@ -24,6 +24,7 @@ import EditScholarship from "../Page/EditScholarship/EditScholarship";
 import ModeratorRauter from "./ModeratorRouter.jsx/ModeratorRauter";
 import ManageApplication from "../Page/ManageApplication/ManageApplicaton";
 import AllReviews from "../Page/AllReviews/AllReviews";
+import ErrorPage from "../Page/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -109,19 +110,22 @@ export const router = createBrowserRouter([
       },
       {
         path : 'payment/:scholarId',
-        element: <Payment />
+        element: <PrivetRouter><Payment /></PrivetRouter> 
       },
             {
         path: 'payment-cancel',
-        element:<PaymentCancel />
+        element: <PrivetRouter><PaymentCancel /></PrivetRouter> 
       },
       {
         path: 'payment-success',
-        element: <PaymentSuccess />
+        element: <PrivetRouter><PaymentSuccess /></PrivetRouter>
       }
     ]
-  }
-
+  },
+  {
+    path: '*',
+    element: <ErrorPage />
+  },
 
 
 

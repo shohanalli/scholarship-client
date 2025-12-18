@@ -18,7 +18,7 @@ const ManageApplication = () => {
   const { data: applications = [], refetch } = useQuery({
     queryKey: ["application"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/applications");
+      const res = await axiosSecure.get("/moderator/applications");
       return res.data;
     },
   });

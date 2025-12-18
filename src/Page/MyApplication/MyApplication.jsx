@@ -165,8 +165,14 @@ const MyApplication = () => {
                 <th>{index + 1}</th>
                 <td>{application.universityName}</td>
                 <td>{application.universityAddress}</td>
-                <td>feedback</td>
-                <td>{application.status}</td>
+                <td>{application.feedback}</td>
+                <td>
+                  <span className={ `btn cursor-not-allowed text-white ${application.status === 'completed' ? "bg-[#0D4715]" : 
+                  application.status === 'processing' ?
+                  "bg-[#050E3C]" : application.status === 'pending' ? "bg-[#FD7979]": "bg-[#8f93a5]"}` }>
+                          {application.status}
+                  </span>
+                  </td>
                 <td>${application.applicationFees}</td>
                 <td>{application.subjectCategory}</td>
                 <td className="space-x-1.5 space-y-1.5 ">
