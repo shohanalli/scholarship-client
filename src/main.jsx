@@ -13,7 +13,7 @@ import { PrimeReactProvider } from 'primereact/api';
 
 
 createRoot(document.getElementById('root')).render(
-  <PrimeReactProvider>
+    <PrimeReactProvider>
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
     <RouterProvider router={router} />

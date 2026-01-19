@@ -6,7 +6,7 @@ import { CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer sm:footer-horizontal py-15 bg-primary-content text-white/80 p-10">
+      <footer className="footer sm:footer-horizontal py-15 bg-[#16425B] text-white/80 p-10">
         <aside>
             <Logo />
             <ul className="py-3 space-y-2">

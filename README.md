@@ -4,6 +4,7 @@ A full-stack scholarship management platform where students can apply for schola
 
 Live Website: https://scholarship-84752.web.app 
 
+
 #### Features
 
 ## Admin 

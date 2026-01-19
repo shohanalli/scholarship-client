@@ -5,9 +5,9 @@ const Faq = () => {
   return (
     <div className="w-11/12 md:w-10/12 mx-auto py-15 md:py-24 flex flex-col md:flex-row gap-5 overflow-x-hidden">
       <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 2 }}
+        // initial={{ x: -100, opacity: 0 }}
+        // whileInView={{ x: 0, opacity: 1 }}
+        // transition={{ duration: 2 }}
         
       >
         <div className="flex-1 flex flex-col justify-center space-y-2">
@@ -23,9 +23,9 @@ const Faq = () => {
         </div>
       </motion.div>
       <motion.div
-        initial={{ x: 100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 2 }}
+        // initial={{ x: 100, opacity: 0 }}
+        // whileInView={{ x: 0, opacity: 1 }}
+        // transition={{ duration: 2 }}
       >
         <div className="flex-1">
           <img className="object-cover" src={image} alt="" />
